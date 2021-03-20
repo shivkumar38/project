@@ -1,0 +1,10 @@
+const express = require('express')
+const app = express()
+const bodyparser = require('body-parser')
+const employeeContorller = require('./controllers/employeeContorller.js')
+const { mongoose } = require('./db.js')
+app.use(bodyparser.json())
+app.listen(3000, () => {
+  console.log('listen  the port number is 3000')
+})
+app.use('/employees', employeeContorller)
